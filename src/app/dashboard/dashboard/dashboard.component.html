@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center">
+	<span class="page-title" > {{pageTitle}}</span>
+	<span fxFlex></span>
+	<a class='nav-link' [routerLink]="['dashboard']" routerLinkActive='active'>Dashboard</a>
+	<a class='nav-link' [routerLink]="['newsDetail']" routerLinkActive='active'>Latest news</a>
+	<a class='nav-link' [routerLink]="['precautions']" routerLinkActive='active'>Precautions</a>
+	<a class='nav-link' *ngIf="currentUser" [routerLink]="['addnews']" routerLinkActive='active'>Add news</a>
+    <a class='nav-link' *ngIf="!currentUser" (click)="login()">Admin login</a>
+    <a class='nav-link' *ngIf="currentUser" (click)="logout()">Logout</a>
+</mat-toolbar>
+<br/><br/>
+  <router-outlet></router-outlet>

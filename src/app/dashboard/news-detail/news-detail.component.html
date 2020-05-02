@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <span>News Headlines</span>  
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-container">
+    <mat-card class="example-card"  *ngFor="let newsData of news">
+      <mat-card-header>
+        <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/img/covid.jpg)'}" class="example-header-image"></div>
+        <mat-card-title class="title">{{newsData.title}}</mat-card-title>
+        <mat-card-subtitle>{{newsData.description}}</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <p>
+          {{newsData.summary}}
+        </p>
+        <p>{{newsData.news}}</p>
+      </mat-card-content>
+     
+    </mat-card>
+  </mat-sidenav-container>

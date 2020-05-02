@@ -1,0 +1,54 @@
+<mat-toolbar color="primary">
+    <span>Corona virus cases </span>  
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+
+  <div class="card">
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-2">Search:</div>
+            <div class="col-md-4">
+              <input
+                [(ngModel)]="search"
+                type="text"
+                [placeholder]="search"
+                id="listSearch"
+              />
+            </div>
+          </div>
+      <div class="row">
+      <div class="table-responsive">
+        <table class="table" *ngIf="covidData">
+          <thead>
+            <tr>
+              <th>State</th>  
+              <th>Reported</th>
+              <th>Active</th>
+              <th>Recovered</th>
+              <th>Deceased</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of covidData.statewise | search: search">
+              <td *ngIf="data.statecode != 'TT'"><a (click)="getStateDetail(data.statecode)">{{ data.state}}</a></td>
+              <td *ngIf="data.statecode === 'TT'">{{ data.state}}</td>
+              <td>{{ data.confirmed}}</td>
+              <td>{{ data.active}}</td>
+              <td>{{ data.recovered}}</td>
+              <td>{{ data.deaths}}</td>  
+                <td>
+                <button *ngIf="data.statecode != 'TT'" mat-flat-button color="primary" (click)="getStateDetail(data.statecode)">
+                  View Record
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="table-data">
+   
+  </div>

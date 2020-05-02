@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+    <span>District wise cases </span>  
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+      <div class="table-responsive">
+        <table class="table" *ngIf="ditrictWiseData && ditrictWiseData.size">
+          <thead>
+            <tr>
+              <th>District</th>  
+              <th title="name">Active</th>
+              <th>Confirmed</th>
+              <th>Deceased</th>
+              <th>Recovered</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of ditrictWiseData | keyvalue">
+              <td>{{ data.key}}</td>
+              <td>{{ data.value.active}}</td>
+              <td>{{ data.value.confirmed}}</td>
+              <td>{{ data.value.deceased}}</td>
+              <td>{{ data.value.recovered}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!ditrictWiseData.size"><h1>No record found</h1></div>
+  <button mat-flat-button color="primary" (click)="goBack()">
+    Back
+  </button>
+  

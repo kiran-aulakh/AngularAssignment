@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span>Precautions</span>  
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-container">
+    <mat-card class="example-card"  *ngFor="let precaution of precautions">
+      <mat-card-header>
+        <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/img/precautions.gif)'}" class="example-header-image"></div>
+        <mat-card-title class="title">{{precaution.precaution}}</mat-card-title>
+    </mat-card-header>
+    </mat-card>
+  </mat-sidenav-container>
