@@ -1,0 +1,20 @@
+.table td, .table th {
+    padding: 1.75rem;
+}
+
+.card {
+    padding-left: 20px;
+}
+
+.mat-grid-tile .mat-grid-tile-header {
+    top: 2;
+}
+
+.mat-grid-tile .mat-grid-tile-header, .mat-grid-tile .mat-grid-tile-footer {
+    background: cadetblue;
+}
+
+.mat-flat-button {
+    width: 10%;
+    margin-bottom: 50px;
+  }
