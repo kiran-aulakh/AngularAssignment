@@ -36,6 +36,28 @@ describe('AdminLoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('sumbitting ', () => {
+    expect(component.adminLoginForm.valid).toBeFalsy();
+    component.adminLoginForm.controls['username'].setValue("Rohit");
+    component.adminLoginForm.controls['password'].setValue("123");
+    expect(component.adminLoginForm.valid).toBeTruthy();
+    component.onSubmit();
+    location.go("/covid/dashboard");
+    expect(location.path()).toBe('/covid/dashboard'); 
+  });
+
+  it('Check username', () => {
+    component.adminLoginForm.controls['username'].setValue("Rohit");
+    const username = "Rohit";
+    expect(component.adminLoginForm.controls['username'].value).toEqual(username);
+  });
+
+  it('go back  ', () => {
+    component.goBack();
+    location.go("/covid/dashboard");
+    expect(location.path()).toBe('/covid/dashboard'); 
+  });
+
   it('form invalid when empty', () => {
     expect(component.adminLoginForm.valid).toBeFalsy();
   });
@@ -50,16 +72,6 @@ describe('AdminLoginComponent', () => {
     let username = component.adminLoginForm.controls['username'];
     errors = username.errors || {};
     expect(errors['required']).toBeTruthy(); 
-  });
-
-  it('sumbitting ', () => {
-    expect(component.adminLoginForm.valid).toBeFalsy();
-    component.adminLoginForm.controls['username'].setValue("Rohit");
-    component.adminLoginForm.controls['password'].setValue("123");
-    expect(component.adminLoginForm.valid).toBeTruthy();
-    component.onSubmit();
-    location.go("/covid/dashboard");
-    expect(location.path()).toBe('/covid/dashboard'); 
   });
 
 });

@@ -29,4 +29,11 @@ describe('AuthService', () => {
     expect(service.currentUserValue).toEqual(users);
   });
 
+  it('check get users', () => {
+   service.users = [];
+   let u =  service.getUsers();
+   expect(u.length).toBe(4);
+    
+  });
+
 });

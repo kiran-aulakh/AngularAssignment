@@ -14,4 +14,8 @@ describe('DataService', () => {
     expect(service).toBeTruthy();
   });
 
+  it('storage value' , () => {
+    let storage;
+    expect(storage).toBeUndefined();
+  });
 });

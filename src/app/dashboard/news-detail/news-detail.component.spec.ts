@@ -53,7 +53,7 @@ describe('NewsDetailComponent', () => {
     expect(component.news).toEqual(newsDetail);
   });
 
-  it('' , () => {
+  it('list all news' , () => {
     const newsDetail: INews[] = [{
       "title": "",
       "description": "",
