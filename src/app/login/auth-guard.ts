@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate{
 
     canActivate() {
         const currentUser = this.authService.currentUserValue;
-        if (currentUser && null != localStorage.getItem('currentUser')) {
+        if (null != localStorage.getItem('currentUser')) {
             return true;
         }
         this.router.navigate(['/login']);
