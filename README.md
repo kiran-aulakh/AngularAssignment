@@ -1,4 +1,4 @@
-Application link: http://wonderful-paint.surge.sh/
+Application link: http://devilish-crib.surge.sh/
 Application working:
 1.	There are 4 tabs Dashboard, Latest news, Precautions and Admin login visible to user.
 2.	After Admin login success, new tabs Add news and Logout will be also visible using which admin can add news.
