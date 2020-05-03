@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Location } from "@angular/common";
 import { DashboardPageComponent } from './dashboard-page.component';
 import { DashboardService } from 'src/app/core/services/dashboard.service';
 import {  of } from 'rxjs';
@@ -25,6 +25,7 @@ describe('DashboardPageComponent', () => {
   let component: DashboardPageComponent;
   let fixture: ComponentFixture<DashboardPageComponent>;
   let service: MockDashboardService;
+  let location: Location;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
@@ -39,6 +40,7 @@ describe('DashboardPageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DashboardPageComponent);
     component = fixture.componentInstance;
+    location = TestBed.get(Location); 
     service = new MockDashboardService();
     fixture.detectChanges();
   });
@@ -54,6 +56,13 @@ describe('DashboardPageComponent', () => {
       "tested": []
     }
     expect(component.covidData).toEqual(covidDetails);
+  });
+
+  it('go back  ', () => {
+    let statecode = 'TT';
+    component.getStateDetail(statecode);
+    location.go("/covid/view");
+    expect(location.path()).toBe('/covid/view'); 
   });
 
 });

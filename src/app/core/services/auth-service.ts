@@ -5,7 +5,7 @@ import { IUser } from '../../shared/interfaces/IUsers';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     public currentUserSubject: BehaviorSubject<String>;
-    private users : IUser[];
+    public users : IUser[];
     public currentUser: Observable<String>;
 
     constructor() {

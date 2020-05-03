@@ -46,4 +46,12 @@ describe('PrecautionsComponent', () => {
     expect(component.precautions).toEqual(precautions);
   });
 
+  it('should call list all precautions' , () => {
+    const precautions: IPrecautions[] = [{
+      "precaution":""
+     }]
+    component.listAllPrecautions();
+    expect(component.precautions).toEqual(precautions);
+  });
+
 });

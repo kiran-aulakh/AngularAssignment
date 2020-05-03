@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Location } from "@angular/common";
 import { StateDetailsComponent } from './state-details.component';
 import { DataService } from 'src/app/core/services/data.service';
 import { DistrictData } from 'src/app/shared/interfaces/IStateData';
@@ -13,6 +13,7 @@ describe('StateDetailsComponent', () => {
   let component: StateDetailsComponent;
   let fixture: ComponentFixture<StateDetailsComponent>;
   let service: MockDataService;
+  let location: Location;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
@@ -27,6 +28,7 @@ describe('StateDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StateDetailsComponent);
     component = fixture.componentInstance;
+    location = TestBed.get(Location); 
     service = new MockDataService();
     fixture.detectChanges();
   });
@@ -40,4 +42,10 @@ describe('StateDetailsComponent', () => {
     expect(component.districtData).toEqual(districtData);
   });
 
+  it('go back  ', () => {
+    component.goBack();
+    location.go("/covid/dashboard");
+    expect(location.path()).toBe('/covid/dashboard'); 
+  });
+  
 });
